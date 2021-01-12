@@ -68,6 +68,13 @@
 			g.setVisibility(parseInt(el.id), el.checked);
 		}
 
+		function tiraZoom(){
+			g.updateOptions({
+          		dateWindow: null,
+          		valueRange: null
+        	});
+		}
+
 		var data = dataJson;
 
 		g = new Dygraph(
@@ -77,6 +84,7 @@
 			{labels: ["Frequência", "Original", "Decimado", "Filtrado", "Decimado com filtro", "Interpolado", "Com filtro de eco"],
 			legend: "always",
 			valueRange: [0, null],
+			dateWindow: null,
 			legendFormatter: legendFormatter,
 			title: "Espectro de Frequência",
 			xlabel: "Frequência (Hz)",
@@ -110,6 +118,7 @@
 		<label class="checkbox-inline">
 			<input type="checkbox" id="5" value="" onclick='handleClick(this);' checked>Com filtro de eco
 		</label>
+		<input type="button" value="Restaurar Escala" onclick="tiraZoom()">
 	</form>
 	</div>
 
