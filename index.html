@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="./ProjetoAquisicao_files/style.css">
 	
 	<script src="./ProjetoAquisicao_files/dygraph.js"></script>
+	<script type="text/javascript" src="./ProjetoAquisicao_files/data/data.json"></script> 
 	<link rel="stylesheet" href="./ProjetoAquisicao_files/dygraph.css" />
 	
     <title>Projeto Final</title>
@@ -63,19 +64,16 @@
 			return html;
 		}
 
-		/*function setStatus() {
-			document.getElementById("visibility").innerHTML =
-			g.visibility().toString();
-		}*/
-
 		function handleClick(el) {
 			g.setVisibility(parseInt(el.id), el.checked);
-			//setStatus();
 		}
+
+		var data = dataJson;
 
 		g = new Dygraph(
 			document.getElementById("FreqChart"),
-			"./ProjetoAquisicao_files/data/data.csv",
+			//"./ProjetoAquisicao_files/data/data.csv",
+			data,
 			{labels: ["Frequência", "Original", "Decimado", "Filtrado", "Decimado com filtro", "Interpolado", "Com filtro de eco"],
 			legend: "always",
 			valueRange: [0, null],
